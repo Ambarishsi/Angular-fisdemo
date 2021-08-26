@@ -1,4 +1,12 @@
-<signup></signup>
+<signup [myinput]="input_var" (myOutput) = "getData($event)"></signup>
+{{out_var}}
+<hr>
+<div [ngSwitch]="value">
+  <p *ngSwitchCase = "5"> This is 5</p>
+  <p *ngSwitchCase = "10"> This is 10</p>
+  <p *ngSwitchCase = "15"> This is 15</p>
+  <p *ngSwitchDefault homeRenderer> This is default</p>
+</div>
 <hr>
 <div id="about" class="container-fluid">
   <div class="row">

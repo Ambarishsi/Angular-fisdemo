@@ -8,6 +8,10 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
+  value = '45';
+  input_var = "hi from parent";
+  out_var:any;
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {
@@ -16,5 +20,9 @@ export class HomeComponent implements OnInit {
 
   goToContact(): void {
     this.router.navigate(['/contact']);
+  }
+
+  getData(ev: any){
+    this.out_var=ev;
   }
 }

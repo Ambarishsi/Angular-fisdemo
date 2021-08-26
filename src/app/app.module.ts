@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -13,6 +13,11 @@ import { ContactComponent } from './contact/contact.component';
 import { AuthGaurdService } from './auth-gaurd.service';
 import { CanDeactivateGuard } from './contact/can-deactivate-guard.service';
 import { HttpClientModule } from '@angular/common/http'
+import { HomeColorDirective } from './home/home-color.directive';
+import { HomeRendererDirective } from './home/home-renderer.directive';
+import { StoreModule } from "@ngrx/store"
+import { contactReducer } from './contact/store/contact.reducer';
+// import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -24,13 +29,17 @@ import { HttpClientModule } from '@angular/common/http'
     HomeComponent,
     AboutComponent,
     ContactComponent,
-
+    HomeColorDirective,
+    HomeRendererDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    StoreModule.forRoot(contactReducer)
+    // MatButtonModule
   ],
   providers: [
     AuthGaurdService,
